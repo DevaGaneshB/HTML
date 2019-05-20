@@ -1,0 +1,71 @@
+<html>
+<head>
+
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<meta charset=utf-8 />
+
+<title>Form1</title>
+
+<h1>Biodata Form</h1>
+<style>
+img{max-width:60px;
+max-height:80px;}
+</style>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#kar')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+                $('#bla')
+                    .attr('src', e.target.result)
+                    .width(450)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+</head>
+
+<body style=border-style:solid align="center">
+<br><br>
+<form action="form2print.html" method="get">
+Name:<input type="text" name="name"><br><br>
+DOB:<input type="date" name="DOB"><br><br>
+
+Photo:
+ <input type='file' onchange="readURL(this);" />
+    <!--<img id="kar" src="#" alt="your image" />--><br>
+<img id="bla"  alt="Image" src="#" width="4" height="4"> <br><br>
+
+Password:<input type="password" name="pwd" ><br><br>
+<form>
+
+Gender:
+<input type="radio" name="Gender" value="male" >Male
+<input type="radio" name="Gender" value="female" >Female
+<input type="radio" name="Gender" value="transgender" >Transgender<br><br>
+</form>
+<form>
+
+Hobbies:
+<input type="checkbox" name="hobby" value="Programming">Programming
+
+<input type="checkbox" name="hobby" value="Devloping">Devloping<br><br>
+</form>
+<input type="submit" value="submit">
+</form>
+<a href="./test2.html">proceed</a>
+</body>
+</html>

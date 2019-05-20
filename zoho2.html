@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Entitled Document</title>
+<script language="JavaScript" >
+
+function getSubmit()
+{
+var LastName;
+var Firstn = names.value ;
+
+var cn = new ActiveXObject("ADODB.Connection");
+//here you must use forward slash to point strait
+var strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source = ?F:\data.xls.xlsx";
+var rs = new ActiveXObject("ADODB.Recordset");
+//var SQL = "INSERT INTO Customers(FirstName, Surname)"
+//+ " VALUES ( '"+ names.value +"', '" + surname.value +"')";
+var SQL = "select Surname, DOB from Customers where FirstName = '" + Firstn + "'";
+
+cn.Open(strConn);
+rs.Open(SQL, cn);
+surname.value = rs(0);
+DOB.value = rs(1);
+//alert(rs(0));
+rs.Close();
+cn.Close();
+
+
+}
+
+</script>
+</head>
+<body>
+
+<input type="text" name="Name" />
+<input type="text" name="Rollno" />
+<input type="text" name="email" />
+<input type="text" name="Mobile" />
+<input type="button" value="submit" onclick="getSubmit()">
+
+</body>
+</html>
+
+1

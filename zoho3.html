@@ -1,0 +1,35 @@
+<html>
+<head>
+<script type="text/javascript">
+function write_to_excel() 
+{
+str="";
+
+var mytable = document.getElementsByTagName("table")[0];
+var row_Count = mytable.rows.length;
+var col_Count = mytable.getElementsByTagName("tr")[0].getElementsByTagName("td").length;    
+
+var ExcelApp = new ActiveXObject("Excel.Application");
+var ExcelSheet = new ActiveXObject("Excel.Sheet");
+ExcelSheet.Application.Visible = true;
+
+    for(var i=0; i < row_count ; i++) 
+    {   
+        for(var j=0; j < col_Count; j++) 
+        {           
+            str= mytable.getElementsByTagName("tr")[i].getElementsByTagName("td")[j].innerHTML;
+            ExcelSheet.ActiveSheet.Cells(i+1,j+1).Value = str;
+        }
+    }
+}
+</script></script></head>
+<body>
+<input type="submit" value="Export to EXCEL" onclick="write_to_excel();"/>
+
+<!-- ************************************************-->
+<!--**** INSERT THE TABLE YOU WANT EXPORT HERE ****-->
+<table><tr><td>First</td><td>second</td></tr></table>
+<!-- *******************example given above****************-->
+
+</body>
+</html>

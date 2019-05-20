@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>Form</title>
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<meta charset=utf-8 />
+<h1>Application Form</h1>
+<title>Form1</title>
+<style>
+img{max-width:60px;
+max-height:80px;}
+</style>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script>
+function readURL(input) {
+if (input.files && input.files[0]) {
+var reader = new FileReader();
+
+reader.onload = function (e) {
+$('#kar')
+.attr('src', e.target.result)
+.width(150)
+.height(200);
+$('#bla')
+.attr('src', e.target.result)
+.width(450)
+.height(200);
+};
+reader.readAsDataURL(input.files[0]);
+}
+}
+</script>
+<style>
+body{background-color:#FFFFF0;}
+.but{background-color:#FFFF00; color:#000000;}
+div{ border:1px black solid; background-color:#FFFFCC; width:595px; height:842px; }
+</style>
+</head>
+<body align="center">
+<div id="f1" width="595px" height="842px" style="display:block;">
+<form>
+<h2>Biodata Form</h2>
+<br><br>
+
+Name:<input type="text" name="name"><br><br>
+DOB:<input type="date" name="DOB"><br><br>
+Photo:
+<input type='file' onchange="readURL(this);" />
+<!--<img id="kar" src="#" alt="your image" />--><br>
+<img id="bla" alt="Image" src="#" width="4" height="4"> <br><br>
+Password:<input type="password" name="pwd" ><br><br>
+<form>
+Gender:
+<input type="radio" name="Gender" value="male" >Male
+<input type="radio" name="Gender" value="female" >Female
+<input type="radio" name="Gender" value="transgender" >Transgender<br><br>
+</form>
+<form>
+Hobbies:
+<input type="checkbox" name="hobby" value="Programming">Programming
+<input type="checkbox" name="hobby" value="Devloping">Devloping<br><br>
+</form>
+<button class="but" onclick="next()">Next</button>
+<br><br><br><br><br><br><br><br><br><br>
+</div>
+<br><br>
+
+<div id="f2" width="595px" height="842px" style="display:none;">
+<br><br>
+<h2>Address Form</h2>
+Country:
+<select>
+<option value="Argentina" title="Argentina">Argentina</option>
+<option value="Australia" title="Australia">Australia</option>
+<option value="India" title="India">India</option>
+</select><br><br>
+State:
+<select>
+<option value="EastAustralia">EastAustralia</option>
+<option value="Bueonos Aires ">Bueonos Aires</option>
+<option value="TamilNadu">TamilNadu</option>
+</select><br><br>
+<form>
+City:<input type="text" name="city"><br><br>
+Pincode:<input type="num" name="pincode"><br><br>
+MobileNo:<input type="num" name="MobileNo"><br><br>
+</form>
+<button class="but" onclick="pre()">Previous</button>
+<button class="but" onclick="print1()">print</button>
+</div>
+<script>
+var n=document.getElementById("f1");
+
+var m=document.getElementById("f2");
+function next(){
+n.style.display="none";
+m.style.display="block";}
+function pre(){
+n.style.display="block";
+m.style.display="none";}
+function print1(){
+if(n.style.display="none"){
+n.style.display="block";}
+if(m.style.display="none"){
+m.style.display="block";}
+window.print();}
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+<style>
+table,th,tr,td{border: 1px solid black}
+</style>
+</head>
+<body>
+<table>
+<th>Book Name</th>
+<th>Price</th>
+<tr>
+<td>Da vinci Code</td>
+<td>Rs.599/-</td>
+</tr>
+<tr>
+<td>Harry Potter</td>
+<td>Rs.699/-</td>
+</tr>
+</table>
+<p>Select the required books</p>
+Da vinci Code:
+<input type="checkbox" value=599 id="id1"><br>
+Harry Potter:
+<input type="checkbox" value=699 id="id2"><br>
+<button onclick="book()">Buy</button>
+<p id="buy"></p>
+<script>
+function book(){
+var m=document.getElementById("id1");
+var n=document.getElementById("id2");
+var sum=0;
+if(m.checked == true){sum=sum+599;}
+if(n.checked == true){sum=sum+699;}
+document.getElementById("buy").innerHTML="Total Amount ="+sum; 
+}
+</script>
+</body>
+</html>
